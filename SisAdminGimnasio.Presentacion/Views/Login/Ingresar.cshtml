@@ -1,0 +1,26 @@
+﻿
+
+
+<div class="gridContainer">
+    
+    <div class="gridRow">
+
+
+        <div class="cardLogin">
+            @using (Html.BeginForm("ValidarUsuario", "Login", FormMethod.Post))
+            {
+                <h2 class="headerCardLogin"><i style="font-size:24px" class="fa">&#xf0e7;</i> Bienvenido</h2>
+                
+                <input class="input" type="text" placeholder="Usuario" />
+                <br />
+                <input class="input" type="text" placeholder="Contraseña" />
+                <br />
+                <input class="sub" type="submit" value="Ingresar" />
+            }
+        </div>
+
+
+    </div>
+
+</div>
+

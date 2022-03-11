@@ -1,8 +1,10 @@
 ﻿
-
-
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/css/Login.css")
 <div class="gridContainer">
-    
+
     <div class="gridRow">
 
 
@@ -10,12 +12,12 @@
             @using (Html.BeginForm("ValidarUsuario", "Login", FormMethod.Post))
             {
                 <h2 class="headerCardLogin"><i style="font-size:24px" class="fa">&#xf0e7;</i> Bienvenido</h2>
-                
-                <input class="input" type="text" placeholder="Usuario" />
-                <br />
-                <input class="input" type="text" placeholder="Contraseña" />
-                <br />
-                <input class="sub" type="submit" value="Ingresar" />
+
+                <input class="input form-control" type="text" placeholder="Usuario" />
+
+                <input class="input form-control" type="text" placeholder="Contraseña" />
+
+                <input class="btn btn-lg sub" type="submit" value="Ingresar" />
             }
         </div>
 

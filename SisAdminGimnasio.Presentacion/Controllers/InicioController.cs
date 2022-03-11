@@ -18,7 +18,7 @@ namespace SisAdminGimnasio.Presentacion.Controllers
 
 
         [HttpGet]
-        [AuthorizationFilter]
+        [AuthorizationFilter("Admin,Enfermera")]
         public ActionResult Entrenadores()
         {
             return Content("Hollaaaaa");

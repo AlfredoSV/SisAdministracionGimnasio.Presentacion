@@ -25,6 +25,9 @@ namespace SisAdminGimnasio.Presentacion.Controllers
         
         public ActionResult ValidarUsuario()
         {
+            var cookie = new HttpCookie("usuario");
+            cookie.Value = "1244";
+            HttpContext.Response.Cookies.Add(cookie);
             return RedirectToAction("Inicio","Inicio");
         }
     }

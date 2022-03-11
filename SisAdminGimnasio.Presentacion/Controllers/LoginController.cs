@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SisAdminGimnasio.Presentacion.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,9 +22,10 @@ namespace SisAdminGimnasio.Presentacion.Controllers
         }
 
         [HttpPost]
+        
         public ActionResult ValidarUsuario()
         {
-            return View();
+            return RedirectToAction("Inicio","Inicio");
         }
     }
 }

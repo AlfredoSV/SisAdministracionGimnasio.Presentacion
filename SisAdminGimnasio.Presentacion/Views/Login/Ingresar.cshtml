@@ -2,27 +2,54 @@
 @{
     Layout = null;
 }
-@Styles.Render("~/Content/css/Login.css")
-<div class="gridContainer">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css/main.css")
+    @Styles.Render("~/Content/css/Login.css")
 
-    <div class="gridRow">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="gridContainer">
+
+        <div class="gridRow">
 
 
-        <div class="cardLogin">
-            @using (Html.BeginForm("ValidarUsuario", "Login", FormMethod.Post))
-            {
-                <h2 class="headerCardLogin"><i style="font-size:24px" class="fa">&#xf0e7;</i> Bienvenido</h2>
+            <div class="cardLogin">
+                @using (Html.BeginForm("ValidarUsuario", "Login", FormMethod.Post))
+                {
+                    <h2 class="headerCardLogin"><i style="font-size:24px" class="fa">&#xf0e7;</i> Bienvenido</h2>
 
-                <input class="input form-control" type="text" placeholder="Usuario" />
+                    <input class="input form-control" type="text" placeholder="Usuario" />
 
-                <input class="input form-control" type="text" placeholder="Contraseña" />
+                    <input class="input form-control" type="text" placeholder="Contraseña" />
 
-                <input class="btn btn-lg sub" type="submit" value="Ingresar" />
-            }
+                    <input class="btn btn-lg sub" type="submit" value="Ingresar" />
+                }
+            </div>
+
+
         </div>
-
 
     </div>
 
-</div>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/js/main.js")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+</body>
+</html>
+
 

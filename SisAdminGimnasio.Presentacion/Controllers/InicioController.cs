@@ -13,7 +13,7 @@ namespace SisAdminGimnasio.Presentacion.Controllers
         [HttpGet]
         public ActionResult Inicio()
         {
-            return View();
+            return View("Inicio");
         }
 
 

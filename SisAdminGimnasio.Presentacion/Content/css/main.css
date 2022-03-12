@@ -2,9 +2,16 @@
 
 body {
     font-family: "Grandstander", cursive;
-    margin:0px;
-    padding:0px;
-    
+    margin: 0px;
+    padding: 0px;
+    display: inline-flex !important;
+}
+
+.navcon {
+    display: inline-flex !important;
+    margin: 0px !important;
+    background-color: #808080;
+    padding: 0px !important;
 }
 
 * {
@@ -13,24 +20,25 @@ body {
     box-sizing: border-box;
 }
 
-.container {
+.nav {
     height: 100vh;
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+   
 }
 
 .side-nav,
 .nav-menu {
     height: 100%;
-
-    
+   
 }
 
     .side-nav .nav-menu {
         list-style: none;
         padding: 40px 0;
         width: 200px;
-        background-color: black; /*#3498db*/
+        background-color: #808080; /*#3498db*/
     }
 
     .side-nav .nav-item {
@@ -79,3 +87,4 @@ body {
     border-top-right-radius: 25px;
     box-shadow: 0 -20px 0 0 #fff;
 }
+

@@ -2,7 +2,7 @@
     Layout = null;
 }
 
-
+@model SisAdminGimnasio.Presentacion.Models.Usuario
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,18 +35,19 @@
                 @using (Html.BeginForm("ValidarUsuario", "Login", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
+                   
                     <div class="form-group-lg">
-                        @Html.TextBox("UsuarioC", "", new { @class = "inputLog form-control", @placeholder = "Usuario" })
+                        @Html.TextBoxFor(m => m.UsuarioC, "", new { @class = "inputLog form-control", @placeholder = "Usuario" })
                         @Html.ValidationMessage("UsuarioC", "", new { @class = "text-danger" })
 
                     </div>
                     <div class="form-group-lg">
-                        @Html.TextBox("Contrasenia", "", new { @class = "inputLog form-control", @placeholder = "Contraseña" })
+                        @Html.TextBoxFor(m => m.Contrasenia, "", new { @class = "inputLog form-control", @placeholder = "Contraseña" })
                         @Html.ValidationMessage("Contrasenia", "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group-lg">
                         <span>¿Recordarme?</span>
-                        @Html.CheckBox("Recuerdame", false)
+                        @Html.CheckBoxFor(m => m.Recuerdame, false)
 
 
                     </div>
@@ -63,14 +64,10 @@
         </div>
 
     </div>
-
-
-
-
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/Scripts/js/main.js")
-    @Scripts.Render("~/Scripts/")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/js/main.js")
 
 </body>
 </html>

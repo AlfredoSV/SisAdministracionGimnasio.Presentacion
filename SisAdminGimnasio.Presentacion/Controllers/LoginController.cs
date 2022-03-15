@@ -11,15 +11,15 @@ namespace SisAdminGimnasio.Presentacion.Controllers
     public class LoginController : Controller
     {
 
-        // GET: Login
-        [HttpGet]
+        // GET: Login     
         public ActionResult Ingresar()
         {
-            return View();
+            return View(new Usuario());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult ValidarUsuario(Usuario usuarioModelView)
         {
             var usuarioValido = true;
@@ -39,7 +39,7 @@ namespace SisAdminGimnasio.Presentacion.Controllers
                 }
             }
 
-            return View("Ingresar");
+            return View("Ingresar",usuarioModelView);
             
         }
     }

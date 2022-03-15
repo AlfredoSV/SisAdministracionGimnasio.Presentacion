@@ -5,6 +5,7 @@ body {
     margin: 0px;
     padding: 0px;
     display: inline-flex !important;
+    background-color:#cccc;
 }
 
 .navcon {
@@ -88,3 +89,8 @@ body {
     box-shadow: 0 -20px 0 0 #fff;
 }
 
+
+.card{
+    color:white;
+    background-color:red;
+}

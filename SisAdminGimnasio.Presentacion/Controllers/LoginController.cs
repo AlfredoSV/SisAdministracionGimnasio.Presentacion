@@ -4,17 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SisAdminGimnasio.Presentacion.Models;
 
 namespace SisAdminGimnasio.Presentacion.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
-        public ActionResult Index()
-        {
-            return View();
-        }
 
+        // GET: Login
         [HttpGet]
         public ActionResult Ingresar()
         {
@@ -22,13 +19,28 @@ namespace SisAdminGimnasio.Presentacion.Controllers
         }
 
         [HttpPost]
-        
-        public ActionResult ValidarUsuario()
+        [ValidateAntiForgeryToken]
+        public ActionResult ValidarUsuario(Usuario usuarioModelView)
         {
-            var cookie = new HttpCookie("usuario");
-            cookie.Value = "1244";
-            HttpContext.Response.Cookies.Add(cookie);
-            return RedirectToAction("Inicio","Inicio");
+            var usuarioValido = true;
+
+            if (ModelState.IsValid)
+            {
+                if (usuarioValido)
+                {
+                    if (usuarioModelView.Recuerdame)
+                    {
+                        var cookie = new HttpCookie("usuario");
+                        cookie.Value = "1244";
+                        HttpContext.Response.Cookies.Add(cookie);
+                    }
+                   
+                    return RedirectToAction("Inicio", "Inicio");
+                }
+            }
+
+            return View("Ingresar");
+            
         }
     }
 }

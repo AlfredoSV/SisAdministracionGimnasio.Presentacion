@@ -13,7 +13,7 @@ namespace SisAdminGimnasio.Presentacion
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            
+            routes.MapRoute(name: "Inicio", url: "Inicio", defaults: new { controller="Inicio",action="Inicio" });
 
             routes.MapRoute(
                 name: "Default",

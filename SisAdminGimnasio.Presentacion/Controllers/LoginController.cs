@@ -27,7 +27,7 @@ namespace SisAdminGimnasio.Presentacion.Controllers
             var urlAuth = "";
             try
             {
-                
+
                 if (ModelState.IsValid)
                 {
                     var cliente = new HttpClient();
@@ -43,24 +43,43 @@ namespace SisAdminGimnasio.Presentacion.Controllers
                             var cookie = new HttpCookie("usuario");
                             cookie.Value = "1244";
                             HttpContext.Response.Cookies.Add(cookie);
-                            HttpContext.Session.Add("usuarioSess", Guid.NewGuid());
-                        }
-                    }
-            
 
-                    return RedirectToAction("Inicio", "Inicio");
+                        }
+                        HttpContext.Session.Add("usuarioSess", Guid.NewGuid());
+                        return RedirectToAction("Inicio", "Inicio");
+                    }
 
                 }
 
-                return View("Ingresar", usuarioModelView);
             }
             catch (Exception e)
             {
 
                 return View("Error");
             }
-            
-            
+
+            return View("Ingresar", usuarioModelView);
+
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult NuevoUsuario()
+        {
+            return null;
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult GuardarNuevoUsuario()
+        {
+
+            return null;
+        }
+
+
+
     }
 }

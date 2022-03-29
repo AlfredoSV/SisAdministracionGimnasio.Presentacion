@@ -1,8 +1,10 @@
-﻿@{
-
-    ViewBag.Title = "Iniciar sesión";
+﻿
+@{
+    ViewBag.Title = "Nuevo usuario";
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
+
+<h2>NuevoUsuario</h2>
 
 @model SisAdminGimnasio.Presentacion.Models.UsuarioViewModel
 <div class="gridContainer">
@@ -12,12 +14,12 @@
 
         <div class="cardLogin">
             <div>
-                <h2 class="headerCardLogin"><i style="font-size:24px" class="fa">&#xf0e7;</i> Bienvenido</h2>
+                <h2 class="headerCardLogin"><i style="font-size:24px" class="fa">&#xf0e7;</i> Registro</h2>
 
 
             </div>
 
-            @using (Html.BeginForm("ValidarUsuarioAsync", "Login", FormMethod.Post))
+            @using (Html.BeginForm("GuardarNuevoUsuario", "Login", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
 
@@ -30,21 +32,16 @@
                     @Html.TextBoxFor(m => m.Contrasenia, "", new { @class = "inputLog form-control", @placeholder = "Contraseña" })
                     @Html.ValidationMessage("Contrasenia", "", new { @class = "text-danger" })
                 </div>
+                
                 <div class="form-group-lg">
-                    <span>¿Recordarme?</span>
-                    @Html.CheckBoxFor(m => m.Recuerdame, false)
+                    <span>@Html.ActionLink("Ingresar", "Ingresar", "Login")</span>
 
-
-                </div>
-                <div class="form-group-lg">
-                    <span>@Html.ActionLink("Crear nuevo cuenta", "NuevoUsuario","Login")</span>
-                    
 
 
                 </div>
 
                 <div class="form-group-lg">
-                    <input class="sub" type="submit" value="Ingresar" />
+                    <input class="sub" type="submit" value="Registrar" />
 
                 </div>
 

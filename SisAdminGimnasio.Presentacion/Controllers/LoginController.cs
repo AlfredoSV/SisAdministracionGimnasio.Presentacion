@@ -66,7 +66,7 @@ namespace SisAdminGimnasio.Presentacion.Controllers
         [AllowAnonymous]
         public ActionResult NuevoUsuario()
         {
-            return null;
+            return View();
         }
 
 

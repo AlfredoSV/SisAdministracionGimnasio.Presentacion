@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SisAdminGimnasio.Presentacion.Models;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace SisAdminGimnasio.Presentacion.Controllers
 {
@@ -14,32 +16,50 @@ namespace SisAdminGimnasio.Presentacion.Controllers
         // GET: Login     
         public ActionResult Ingresar()
         {
-            return View(new Usuario());
+            return View(new UsuarioViewModel());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult ValidarUsuario(Usuario usuarioModelView)
+        public async Task<ActionResult> ValidarUsuarioAsync(UsuarioViewModel usuarioModelView)
         {
-            var usuarioValido = true;
-
-            if (ModelState.IsValid)
+            var urlAuth = "";
+            try
             {
-                if (usuarioValido)
+                
+                if (ModelState.IsValid)
                 {
-                    if (usuarioModelView.Recuerdame)
-                    {
-                        var cookie = new HttpCookie("usuario");
-                        cookie.Value = "1244";
-                        HttpContext.Response.Cookies.Add(cookie);
-                    }
-                   
-                    return RedirectToAction("Inicio", "Inicio");
-                }
-            }
+                    var cliente = new HttpClient();
+                    var content = new StringContent("");
+                    //var peticion = await cliente.PostAsync(urlAuth,content);
 
-            return View("Ingresar",usuarioModelView);
+                    if (true/*peticion.IsSuccessStatusCode*/)
+                    {
+                        //var res = await peticion.Content.ReadAsStringAsync();
+
+                        if (usuarioModelView.Recuerdame)
+                        {
+                            var cookie = new HttpCookie("usuario");
+                            cookie.Value = "1244";
+                            HttpContext.Response.Cookies.Add(cookie);
+                            HttpContext.Session.Add("usuarioSess", Guid.NewGuid());
+                        }
+                    }
+            
+
+                    return RedirectToAction("Inicio", "Inicio");
+
+                }
+
+                return View("Ingresar", usuarioModelView);
+            }
+            catch (Exception e)
+            {
+
+                return View("Error");
+            }
+            
             
         }
     }

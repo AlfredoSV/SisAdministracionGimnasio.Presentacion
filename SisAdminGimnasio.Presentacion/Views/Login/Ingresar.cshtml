@@ -2,7 +2,7 @@
     Layout = null;
 }
 
-@model SisAdminGimnasio.Presentacion.Models.Usuario
+@model SisAdminGimnasio.Presentacion.Models.UsuarioViewModel
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +32,7 @@
 
                 </div>
 
-                @using (Html.BeginForm("ValidarUsuario", "Login", FormMethod.Post))
+                @using (Html.BeginForm("ValidarUsuarioAsync", "Login", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
                    

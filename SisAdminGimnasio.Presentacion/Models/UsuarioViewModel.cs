@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SisAdminGimnasio.Presentacion.Models
 {
-    public class Usuario
+    public class UsuarioViewModel
     {
         [Required(ErrorMessage = "Ingresar un usuario")]
         public string UsuarioC { get; set; }

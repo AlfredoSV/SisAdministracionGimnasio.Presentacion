@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using SisAdminGimnasio.Presentacion.Models;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace SisAdminGimnasio.Presentacion.Controllers
 {
@@ -24,19 +25,21 @@ namespace SisAdminGimnasio.Presentacion.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ValidarUsuarioAsync(UsuarioViewModel usuarioModelView)
         {
-            var urlAuth = "";
+            var urlAuth = "https://localhost:44316/api/UsuarioAuth/UsuarioAuth";
+            var json= "{\"CorreoUsuario\":\"prueba123@outlook.com\",\"ContrasenaUsuario\":\"prueba123\"}";
             try
             {
 
                 if (ModelState.IsValid)
                 {
                     var cliente = new HttpClient();
-                    var content = new StringContent("");
-                    //var peticion = await cliente.PostAsync(urlAuth,content);
-
-                    if (true/*peticion.IsSuccessStatusCode*/)
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    
+                    var peticion = await cliente.PostAsync(urlAuth,content);
+                    
+                    if (peticion.IsSuccessStatusCode)
                     {
-                        //var res = await peticion.Content.ReadAsStringAsync();
+                        var res = await peticion.Content.ReadAsStringAsync();
 
                         if (usuarioModelView.Recuerdame)
                         {

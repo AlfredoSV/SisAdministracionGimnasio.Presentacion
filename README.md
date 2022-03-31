@@ -3,7 +3,10 @@
 #Actualmente se encuentra en desarrollo
 
 
-![cap1](https://github.com/AlfredoSV/Contador_React/blob/main/capturas/cap1.PNG)
+![cap1](https://github.com/AlfredoSV/SisAdministracionGimnasio.Presentacion/blob/master/capturas/cap1.PNG)
 
 
-![cap2](https://github.com/AlfredoSV/Contador_React/blob/main/capturas/cap2.PNG)
+![cap2](https://github.com/AlfredoSV/SisAdministracionGimnasio.Presentacion/blob/master/capturas/cap2.PNG)
+
+
+![cap3](https://github.com/AlfredoSV/SisAdministracionGimnasio.Presentacion/blob/master/capturas/cap3.PNG)

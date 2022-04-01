@@ -8,6 +8,7 @@ using SisAdminGimnasio.Presentacion.Models;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Text;
+using SisAdminGimnasio.Presentacion.Models.Entidades;
 
 namespace SisAdminGimnasio.Presentacion.Controllers
 {
@@ -39,16 +40,19 @@ namespace SisAdminGimnasio.Presentacion.Controllers
                     
                     if (peticion.IsSuccessStatusCode)
                     {
-                        var res = await peticion.Content.ReadAsStringAsync();
+                        var res = Newtonsoft.Json.JsonConvert.DeserializeObject<Usuario>(await peticion.Content.ReadAsStringAsync());
 
                         if (usuarioModelView.Recuerdame)
                         {
-                            var cookie = new HttpCookie("usuario");
-                            cookie.Value = "1244";
+                            var cookie = new HttpCookie("jj/hsh");
+                            cookie.Value = res.Id;
+                            var cookie2 = new HttpCookie("jj/hidsh");
+                            cookie2.Value = res.TokenSesion;
                             HttpContext.Response.Cookies.Add(cookie);
+                            HttpContext.Response.Cookies.Add(cookie2);
 
                         }
-                        HttpContext.Session.Add("usuarioSess", Guid.NewGuid());
+                        HttpContext.Session.Add("usuarioSess", Guid.Parse(res.Id));
                         return RedirectToAction("Inicio", "Inicio");
                     }
 

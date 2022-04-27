@@ -36,23 +36,23 @@ namespace SisAdminGimnasio.Presentacion.Controllers
                     var cliente = new HttpClient();
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
                     
-                    var peticion = await cliente.PostAsync(urlAuth,content);
+                    //var peticion = await cliente.PostAsync(urlAuth,content);
                     
-                    if (peticion.IsSuccessStatusCode)
+                    if (true/*peticion.IsSuccessStatusCode*/)
                     {
-                        var res = Newtonsoft.Json.JsonConvert.DeserializeObject<Usuario>(await peticion.Content.ReadAsStringAsync());
+                        //var res = Newtonsoft.Json.JsonConvert.DeserializeObject<Usuario>(await peticion.Content.ReadAsStringAsync());
 
                         if (usuarioModelView.Recuerdame)
                         {
-                            var cookie = new HttpCookie("jj/hsh");
+                            /*var cookie = new HttpCookie("jj/hsh");
                             cookie.Value = res.Id;
                             var cookie2 = new HttpCookie("jj/hidsh");
                             cookie2.Value = res.TokenSesion;
                             HttpContext.Response.Cookies.Add(cookie);
-                            HttpContext.Response.Cookies.Add(cookie2);
+                            HttpContext.Response.Cookies.Add(cookie2);*/
 
                         }
-                        HttpContext.Session.Add("usuarioSess", Guid.Parse(res.Id));
+                        //HttpContext.Session.Add("usuarioSess", Guid.Parse(res.Id));
                         return RedirectToAction("Inicio", "Inicio");
                     }
 

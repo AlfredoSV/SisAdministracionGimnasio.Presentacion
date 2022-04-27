@@ -5,7 +5,7 @@ body {
     margin: 0px;
     padding: 0px;
     display: inline-flex !important;
-    background-color:#cccc;
+    background-color:white !important;
 }
 
 .navcon {
@@ -91,6 +91,14 @@ body {
 
 
 .card{
-    color:white;
+    margin:10px;
+}
+
+.textBienvenido{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.carIndicador{
     background-color:red;
+    padding:10px;
 }

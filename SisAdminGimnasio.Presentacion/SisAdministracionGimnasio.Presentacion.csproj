@@ -120,10 +120,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\EntrenadoresController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
+    <Compile Include="Controllers\InventarioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PanelPrincipalController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Filters\AuthenticationFilter.cs" />
     <Compile Include="Filters\AuthorizationFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -141,6 +146,7 @@
     <Content Include="Content\css\Login.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\img\fondoLogin.jpg" />
+    <Content Include="Content\inicio\Inicio.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -187,8 +193,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Clientes\" />
+    <Folder Include="Views\Cuenta\" />
     <Folder Include="Views\Entrenadores\" />
+    <Folder Include="Views\Inventario\" />
     <Folder Include="Views\PanelPrincipal\" />
+    <Folder Include="Views\Usuarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

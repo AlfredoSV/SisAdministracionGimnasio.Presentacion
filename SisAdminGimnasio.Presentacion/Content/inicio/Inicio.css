@@ -1,0 +1,15 @@
+﻿.flex-container
+{
+    display:flex;
+    background-color:blanchedalmond;
+    padding:10px;
+    margin:6px;
+    flex-flow:wrap;
+}
+
+.flex-container div{
+
+    background-color:#93a4c8;
+    padding:10px;
+
+}
